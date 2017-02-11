@@ -1,24 +1,24 @@
 {
-  "name": "gulp-pack",
-  "description": "gulp-shtuki",
-  "main": "index.js",
+  "name": "template",
+  "description": "",
+  "main": "gulpfile.js",
   "authors": [
     "dunai"
   ],
   "license": "ISC",
-  "homepage": "",
-  "private": true,
+  "homepage": "https://github.com/dunai12/template",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
+    "js/libs/",
     "test",
     "tests"
   ],
   "dependencies": {
     "jquery": "^3.1.1",
-    "font-awesome": "Font-Awesome#^4.7.0",
-    "normalize-css": "normalize.css#^5.0.0",
+    "font-awesome": "^4.7.0",
+    "normalize-css": "^5.0.0",
     "modernizer": "^2.8.2"
   }
 }
