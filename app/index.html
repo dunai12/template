@@ -3,13 +3,23 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="UTF-8">
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 		<title>title</title>
-
+		
+		<!-- build:css css/vendоr.min.css -->
 		<!-- bower:css-->
-		<link rel="stylesheet" href="components/normalize-css/normalize.css" />
+		<link rel="stylesheet" href="libs/normalize-css/normalize.css" />
 		<!-- endbower -->
-		
-		
+		<!-- endbuild -->
+
+		<!-- build:css css/main.min.css -->
+		<link rel="stylesheet" href="css/main.css" />
+		<!-- endbuild -->
+
+		<!-- build:js js/modernizr.min.js -->
+		<script src="libs/modernizer/modernizr.js"></script>
+		<!-- endbuild -->
+
 	</head>
 	<body>
 
@@ -18,9 +28,16 @@
 		</div>
 
 	</body>
-
+	
+	<!-- build:js js/vendоr.min.js -->
 	<!-- bower:js-->
-	<script src="components/jquery/dist/jquery.js"></script>
+	<script src="libs/jquery/dist/jquery.js"></script>
+	<script src="libs/qtip2/jquery.qtip.js"></script>
 	<!-- endbower -->
-
+	<!-- endbuild -->
+	
+	<!-- build:js js/main.min.js -->
+	<script src="js/script.js"></script>
+	<!-- endbuild -->
+	
 </html>

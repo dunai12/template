@@ -11,14 +11,26 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "js/libs/",
+    "app/libs/",
     "test",
     "tests"
   ],
   "dependencies": {
     "jquery": "^3.1.1",
-    "font-awesome": "^4.7.0",
-    "normalize-css": "^5.0.0",
-    "modernizer": "^2.8.2"
+    "modernizer": "^2.8.2",
+    "normalize-css": "normalize.css#^5.0.0",
+    "qtip2": "^2.2.1"
+  },
+
+  "overrides": {
+    "qtip2": {
+      "main": [
+        "./jquery.qtip.js",
+        ".jquery.qtip.css"
+      ],
+      "dependencies": {
+        "jquery": ">=1.6.0"
+      }
+    }
   }
 }

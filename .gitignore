@@ -1,3 +1,6 @@
 /node_modules
-app/components
+app/libs
+app/css
+dist/**/*
+!dist/favicon.ico
 ../**/*
