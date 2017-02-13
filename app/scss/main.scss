@@ -1,14 +1,17 @@
-@import "vars.scss";
+/* --------- normalize --------- */
 
-.clearfix:after {
-   content: " ";
-   visibility: hidden;
-   display: block;
-   height: 0;
-   clear: both;
-}
+@import "_misc/normalize";
 
+/* --------- mixins --------- */
 
+@import "_misc/mixins";
 
+/* --------- adjustment --------- */
 
+@import "_misc/adjustment";
 
+/* --------- vars --------- */
+
+@import "_misc/vars";
+
+/* --------- sections --------- */
