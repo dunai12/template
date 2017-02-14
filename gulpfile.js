@@ -141,10 +141,9 @@ gulp.task('watch', function(){
 	gulp.watch('app/scss/**/*.scss', ['styles']);
 	gulp.watch([
 		'app/index.html',
-		'app/js/**/*.js',
-		'app/scss/**/*.scss',
+		'app/js/**/*.js'
 	]).on('change', reload);
 });
 
 //запуск по дефолту
-gulp.task('default', ['server, watch']);
+gulp.task('default', ['server', 'watch']);

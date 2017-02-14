@@ -66,6 +66,47 @@
 	background-image:         linear-gradient(to bottom, $top-color, $bottom-color); /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=$top-color, EndColorStr=$bottom-color);
 }
+/// Triangle helper mixin
+/// @param {Direction} $direction - Triangle direction, either `top`, `right`, `bottom` or `left`
+/// @param {Color} $color [currentcolor] - Triangle color 
+/// @param {Length} $size [1em] - Triangle size
+@mixin triangle($direction, $color: currentcolor, $size: 1em) {
+  @if not index(top right bottom left, $direction) {
+    @error "Direction must be either `top`, `right`, `bottom` or `left`.";
+  }
+  position: absolute;
+  width: 0;
+  height: 0;
+  content: '';
+  z-index: 2;
+  border-#{$direction}: ($size * 1.5) solid $color;
+  
+  $perpendicular-borders: $size solid transparent;
+  
+  @if $direction == top or $direction == bottom {
+    border-left:   $perpendicular-borders;
+    border-right:  $perpendicular-borders;
+    left: 50%;
+    margin-left: -$size;
+  } @else if $direction == right or $direction == left {
+    border-bottom: $perpendicular-borders;
+    border-top:    $perpendicular-borders;
+    top: 50%;
+    margin-top: -$size;
+  }
+  @if $direction == top{
+  	bottom: -$size*1.5;
+  }
+  @if $direction == bottom{
+  	top: -$size*1.5 ;
+  }
+  @if $direction == right{
+  	left: -$size*1.5 ;
+  }
+  @if $direction == left{
+  	right: -$size*1.5 ;
+  }
+}
 
 /* --------- flexbox --------- */
 
