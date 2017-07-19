@@ -1,6 +1,5 @@
 /* --------- adjustment --------- */
 
-$container-width    : 945px;
 $footer-height      : 50px;
 $body-font          : Arial, Helvetica, sans-serif;
 
@@ -17,19 +16,12 @@ body {
 	height:100%;
 }
 
-.container {
-    width: $container-width;
-    margin: 0 auto;
-    position: relative;
-}
-
-.wrapper {
+.main-wrapper {
     position: relative;
     min-height: 100%;
     height: auto !important;
     height: 100%;
     overflow: hidden;
-    min-width: $container-width + 20;
 
     &:after {
 	    display: block;

@@ -19,7 +19,7 @@
     "jquery": "^3.1.1",
     "modernizer": "^2.8.2",
     "qtip2": "^2.2.1",
-    "jquery-pjax": "^1.9.6"
+    "bootstrap": "^3.3.7"
   },
   "overrides": {
     "qtip2": {
