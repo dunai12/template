@@ -16,6 +16,7 @@ var
 	gulpif         = require('gulp-if'),
 	size           = require('gulp-size'),
 	browserSync    = require('browser-sync'),
+    pug 		   = require('gulp-pug'),
 	reload         = require('browser-sync').reload;
 
 
@@ -23,7 +24,7 @@ var
 работа в app
 --------------------------------------- */
 
-// // Компиляция jade в html
+// // Компиляция pug в html
 // gulp.task('jade', function(){
 // 	gulp.src('app/templates/pages/*.jade')
 // 		.pipe(jade())
@@ -33,7 +34,7 @@ var
 // 		.pipe(reload({stream: true}));
 // });
 
-// 	// Подключение ссылок на bower компоненты (с jade)
+// 	// Подключение ссылок на bower компоненты (с pug)
 // 	gulp.task('wiredep', function(){
 // 		 gulp.src('app/templates/common/*.jade')
 // 		   .pipe(wiredep({
@@ -41,16 +42,27 @@ var
 // 		   }))
 // 		   .pipe(gulp.dest('app/templates/common/'));
 // 	});
+gulp.task('pug', function buildHTML() {
+    return gulp.src('app/templates/pages/*.pug')
+        .pipe(pug({
+            // Your options in here.
+        }))
+		.pipe(prettify({indent_size: 2}))
+		.pipe(gulp.dest('app/'))
+		.pipe(reload({stream: true}));
+});
 
 // Подключение ссылок на bower компоненты (без jade)
 gulp.task('wiredep', function(){
-	 gulp.src('app/index.html')
-	   .pipe(wiredep())
-	   .pipe(gulp.dest('app/'));
+	 gulp.src('app/templates/common/*.pug')
+	   .pipe(wiredep({
+           ignorePath: /^(\.\.\/)*\.\./
+	   }))
+	   .pipe(gulp.dest('app/templates/common/'));
 });
 
 //локальный сервер
-gulp.task('server', /*['jade'],*/ function(){
+gulp.task('server', ['pug'], function(){
 	browserSync({
 		notify: false,
 		port: 8080,
@@ -136,11 +148,11 @@ gulp.task('build', ['clean'], function(){
 watch
 --------------------------------------- */
 gulp.task('watch', function(){
-	//gulp.watch('app/templates/**/*.jade', ['jade']);
+	gulp.watch('app/templates/**/*.pug', ['pug']);
 	gulp.watch('bower.json', ['wiredep']);
 	gulp.watch('app/scss/**/*.scss', ['styles']);
 	gulp.watch([
-		'app/index.html',
+		'app/*.html',
 		'app/js/**/*.js'
 	]).on('change', reload);
 });
